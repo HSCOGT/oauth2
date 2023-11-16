@@ -307,6 +307,7 @@ class AuthorizationCodeGrant {
     var secret = this.secret;
     if (_basicAuth && secret != null) {
       headers['Authorization'] = basicAuthHeader(identifier, secret);
+      headers['Content-Type'] = 'application/x-www-form-urlencoded';
     } else {
       // The ID is required for this request any time basic auth isn't being
       // used, even if there's no actual client authentication to be done.
